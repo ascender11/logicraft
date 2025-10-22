@@ -1,1 +1,21 @@
 @import 'tailwindcss';
+
+@layer base {
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: #c8c8c8;
+    border-radius: 4px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background-color: #c0bbbb;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-button {
+    display: none;
+  }
+}
