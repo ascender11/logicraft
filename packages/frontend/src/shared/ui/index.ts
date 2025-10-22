@@ -6,3 +6,4 @@ export {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './DropdownMenu';
+export { Logo } from './Logo';
