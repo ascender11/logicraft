@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { RootLayout } from '../layouts/RootLayout';
 
+import { WorkspacePage } from '@/pages/workspace';
 import { routes } from '@/shared/config';
 
 export const router = createBrowserRouter([
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
       },
       {
         path: routes.workspace,
-        element: <>WorkspacePage</>,
+        element: <WorkspacePage />,
         children: [{ path: ':projectId', element: <>Canvas</> }],
       },
       {
