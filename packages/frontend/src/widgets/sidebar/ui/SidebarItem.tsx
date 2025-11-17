@@ -25,7 +25,7 @@ export const SidebarItem = ({ type }: SidebarItemProps) => {
       onDragEnd={handleDragEnd}
       className={cn(
         'flex flex-col items-center justify-center gap-2 rounded-lg border p-2',
-        'transition-all duration-200 select-none',
+        'select-none transition-all duration-200',
         isDragging
           ? 'cursor-grabbing opacity-50'
           : 'cursor-grab hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm active:scale-[0.98]',
