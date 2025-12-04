@@ -10,7 +10,7 @@ import {
 import '@xyflow/react/dist/style.css';
 
 import type { EdgeTypes } from '@/entities/edge';
-import type { NodeTypes } from '@/entities/node';
+import { nodeComponentsConfig, type NodeTypes } from '@/entities/node';
 
 import { useCircuitHandlers } from '../lib/use-circuit-handlers';
 
@@ -32,6 +32,7 @@ const FlowContent = () => {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           {...reactflowHandlers}
+          nodeTypes={nodeComponentsConfig}
           selectionMode={SelectionMode.Partial}
           proOptions={{ hideAttribution: true }}>
           <Background />
