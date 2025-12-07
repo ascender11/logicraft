@@ -1,3 +1,4 @@
+export { env } from './env';
 export { store } from './store';
 export { routes } from './routes';
 export { blocks } from './blocks';
