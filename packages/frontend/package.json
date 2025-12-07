@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prestart": "pnpm --filter contracts build:esm",
     "start": "vite",
+    "prebuid": "pnpm --filter contracts build:esm",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -15,6 +17,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
     "clsx": "^2.1.1",
+    "contracts": "workspace:*",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
