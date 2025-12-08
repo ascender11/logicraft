@@ -3,10 +3,12 @@ import { RouterProvider } from 'react-router-dom';
 
 import { store } from '@/shared/config/store';
 
+import { ToastProvider } from './ToastProvider';
 import { router } from '../routes/router';
 
 export const Providers = () => (
   <ReduxProvider store={store}>
     <RouterProvider router={router} />
+    <ToastProvider />
   </ReduxProvider>
 );
