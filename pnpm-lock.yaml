@@ -174,6 +174,9 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^2.9.0
         version: 2.9.0(react-redux@9.2.0(@types/react@19.2.2)(react@19.2.0)(redux@5.0.1))(react@19.2.0)
+      '@tanstack/react-query':
+        specifier: ^5.90.12
+        version: 5.90.12(react@19.2.0)
       axios:
         specifier: ^1.13.2
         version: 1.13.2
@@ -1589,6 +1592,14 @@ packages:
     resolution: {integrity: sha512-BoFUoU0XqgCUS1UXWhmDJroKKhNXeDzD7/XwabjkDIAbMnc4ULn5e2FuEuBbhZ6ENZoSYzKlzvZ44Yr6EUDUSA==}
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
+
+  '@tanstack/query-core@5.90.12':
+    resolution: {integrity: sha512-T1/8t5DhV/SisWjDnaiU2drl6ySvsHj1bHBCWNXd+/T+Hh1cf6JodyEYMd5sgwm+b/mETT4EV3H+zCVczCU5hg==}
+
+  '@tanstack/react-query@5.90.12':
+    resolution: {integrity: sha512-graRZspg7EoEaw0a8faiUASCyJrqjKPdqJ9EwuDRUF9mEYJ1YPczI9H+/agJ0mOJkPCJDk0lsz5QTrLZ/jQ2rg==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tokenizer/inflate@0.2.7':
     resolution: {integrity: sha512-MADQgmZT1eKjp06jpI2yozxaU9uVs4GzzgSL+uEq7bVcJ9V1ZXQkeGNql1fsSI0gMy1vhvNTNbUqrx+pZfJVmg==}
@@ -6673,6 +6684,13 @@ snapshots:
       '@tailwindcss/oxide': 4.1.14
       tailwindcss: 4.1.14
       vite: 7.1.9(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.44.0)(yaml@2.8.1)
+
+  '@tanstack/query-core@5.90.12': {}
+
+  '@tanstack/react-query@5.90.12(react@19.2.0)':
+    dependencies:
+      '@tanstack/query-core': 5.90.12
+      react: 19.2.0
 
   '@tokenizer/inflate@0.2.7':
     dependencies:
