@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import { LoginPage } from '@/pages/login';
+import { RegisterPage } from '@/pages/register';
 import { WorkspacePage } from '@/pages/workspace';
 import { routes } from '@/shared/config';
 import { AuthLayout } from '@/widgets/auth';
@@ -31,11 +33,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: routes.auth.login,
-        element: <>Login</>,
+        element: <LoginPage />,
       },
       {
         path: routes.auth.register,
-        element: <>Register</>,
+        element: <RegisterPage />,
       },
     ],
   },
