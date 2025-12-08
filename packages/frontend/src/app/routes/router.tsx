@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { WorkspacePage } from '@/pages/workspace';
 import { routes } from '@/shared/config';
+import { AuthLayout } from '@/widgets/auth';
 
 import { RootLayout } from '../layouts/RootLayout';
 
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
   },
   {
     path: routes.auth.base,
-    element: <>Auth</>,
+    element: <AuthLayout />,
     children: [
       {
         path: routes.auth.login,
