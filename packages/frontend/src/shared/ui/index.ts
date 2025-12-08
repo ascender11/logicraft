@@ -7,3 +7,4 @@ export {
   DropdownMenuTrigger,
 } from './DropdownMenu';
 export { Logo } from './Logo';
+export { Form } from './Form';
