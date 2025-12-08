@@ -14,9 +14,8 @@ export const router = createBrowserRouter([
         element: <>HomePage</>,
       },
       {
-        path: routes.workspace,
+        path: routes.workspace.projectId(':projectId'),
         element: <WorkspacePage />,
-        children: [{ path: ':projectId', element: <>Canvas</> }],
       },
       {
         path: routes.profile,
