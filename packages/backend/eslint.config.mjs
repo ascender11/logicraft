@@ -1,34 +1,59 @@
-// @ts-check
-import eslint from '@eslint/js';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import js from '@eslint/js';
+import tsPlugin from 'typescript-eslint';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import prettier from 'eslint-config-prettier';
+import importPlugin from 'eslint-plugin-import';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(
+  js.configs.recommended,
+  ...tsPlugin.configs.recommended,
+  prettier,
+  globalIgnores([
+    'dist',
+    'node_modules',
+    'coverage',
+    'src/generated',
+    '**/*.config.{js,ts,mjs,cjs}',
+  ]),
   {
-    ignores: ['dist', '**/*.config.js', '**/*.config.mjs', '**/*.config.cjs'],
-  },
-  eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
-  eslintPluginPrettierRecommended,
-  {
+    files: ['src/**/*.ts', 'test/**/*.ts'],
+    plugins: {
+      import: importPlugin,
+    },
     languageOptions: {
+      parser: tsPlugin.parser,
+      parserOptions: {
+        project: join(__dirname, 'tsconfig.json'),
+        tsconfigRootDir: __dirname,
+        sourceType: 'module',
+      },
       globals: {
         ...globals.node,
         ...globals.jest,
       },
-      sourceType: 'commonjs',
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
     },
-  },
-  {
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
-      'prettier/prettier': ['error', { endOfLine: 'auto' }],
+
+      'import/order': [
+        'warn',
+        {
+          groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
+      'import/first': 'warn',
+      'import/newline-after-import': 'warn',
+      'import/no-duplicates': 'warn',
     },
   },
 );

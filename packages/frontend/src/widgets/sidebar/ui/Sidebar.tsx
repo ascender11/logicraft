@@ -1,6 +1,6 @@
-import { BlockGroup } from './BlockGroup';
-
 import { blocks } from '@/shared/config';
+
+import { BlockGroup } from './BlockGroup';
 
 export const Sidebar = () => {
   return (

@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { RootLayout } from '../layouts/RootLayout';
-
 import { WorkspacePage } from '@/pages/workspace';
 import { routes } from '@/shared/config';
+
+import { RootLayout } from '../layouts/RootLayout';
 
 export const router = createBrowserRouter([
   {

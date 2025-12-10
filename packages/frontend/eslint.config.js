@@ -7,17 +7,29 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
-export default defineConfig(
+export default defineConfig([
   eslint.configs.recommended,
-  tseslint.configs.recommended,
+  ...tseslint.configs.recommended,
   prettierConfig,
   reactHooks.configs['recommended-latest'],
   reactRefresh.configs.vite,
-  globalIgnores(['dist', 'build', 'node_modules', 'coverage']),
+  globalIgnores(['dist', 'build', 'node_modules', 'coverage', '**/*.config.{js,ts,mjs,cjs}']),
   {
     files: ['**/*.{ts,tsx}'],
-    plugins: { import: importPlugin },
-    languageOptions: { globals: globals.browser },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        project: './tsconfig.app.json',
+        tsconfigRootDir: import.meta.dirname,
+        sourceType: 'module',
+      },
+    },
+    plugins: {
+      import: importPlugin,
+    },
     settings: {
       'import/resolver': {
         typescript: {
@@ -26,28 +38,24 @@ export default defineConfig(
       },
     },
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-
       'import/order': [
         'warn',
         {
-          groups: ['builtin', 'external', ['parent', 'sibling', 'index']],
+          groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
           pathGroups: [
-            { pattern: 'app/**', group: 'parent', position: 'before' },
-            { pattern: 'processes/**', group: 'parent', position: 'before' },
-            { pattern: 'pages/**', group: 'parent', position: 'before' },
-            { pattern: 'widgets/**', group: 'parent', position: 'before' },
-            { pattern: 'features/**', group: 'parent', position: 'before' },
-            { pattern: 'entities/**', group: 'parent', position: 'before' },
-            { pattern: 'shared/**', group: 'parent', position: 'before' },
+            { pattern: 'app/**', group: 'internal', position: 'before' },
+            { pattern: 'processes/**', group: 'internal', position: 'before' },
+            { pattern: 'pages/**', group: 'internal', position: 'before' },
+            { pattern: 'widgets/**', group: 'internal', position: 'before' },
+            { pattern: 'features/**', group: 'internal', position: 'before' },
+            { pattern: 'entities/**', group: 'internal', position: 'before' },
+            { pattern: 'shared/**', group: 'internal', position: 'before' },
           ],
           'newlines-between': 'always',
           alphabetize: { order: 'asc', caseInsensitive: true },
           warnOnUnassignedImports: true,
         },
       ],
-      'import/no-unresolved': 'off',
-      'import/prefer-default-export': 'off',
     },
   },
-);
+]);

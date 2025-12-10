@@ -1,7 +1,5 @@
 import { useState, useRef } from 'react';
 
-import { AvatarButton } from './AvatarButton';
-
 import { useClickOutside } from '@/shared/hooks';
 import { cn } from '@/shared/lib';
 import {
@@ -12,6 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from '@/shared/ui';
+
+import { AvatarButton } from './AvatarButton';
 
 export const Header = ({ className }: { className?: string }) => {
   const [isOpen, setIsOpen] = useState(false);

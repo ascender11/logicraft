@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { BlockItem } from './BlockItem';
-
 import type { BlockGroup as BlockGroupProps } from '@/shared/config';
 import { cn } from '@/shared/lib';
+
+import { BlockItem } from './BlockItem';
 
 export const BlockGroup = ({ title, items }: BlockGroupProps) => {
   const [isOpen, setIsOpen] = useState(true);
