@@ -19,7 +19,6 @@
     "lint-staged": "^16.2.3"
   },
   "workspaces": [
-    "packages/frontend",
-    "packages/backend"
+    "packages/*"
   ]
 }

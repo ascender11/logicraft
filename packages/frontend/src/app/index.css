@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 
+@theme inline {
+  --color-node-accent: #1b88e7;
+
+  --animate-collapsible-down: slide-down 200ms ease-in-out;
+  --animate-collapsible-up: slide-up 200ms ease-in-out;
+}
+
 @layer base {
   .scrollbar-custom::-webkit-scrollbar {
     width: 4px;
@@ -17,5 +24,31 @@
 
   .scrollbar-custom::-webkit-scrollbar-button {
     display: none;
+  }
+
+  .node-selected {
+    filter: drop-shadow(0 0 8px var(--color-node-accent));
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 1;
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    opacity: 0;
+    height: 0;
   }
 }
