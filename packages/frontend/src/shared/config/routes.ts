@@ -5,6 +5,9 @@ export const routes = {
     login: '/auth/login',
     register: '/auth/register',
   },
-  workspace: '/workspace',
+  workspace: {
+    base: '/workspace',
+    projectId: (id: string) => `/workspace/${id}`,
+  },
   profile: '/profile',
 };
