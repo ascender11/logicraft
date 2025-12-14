@@ -7,6 +7,11 @@ export type JwtPayload = {
   email: string;
 };
 
+export type CurrentUser = {
+  id: string;
+  email: string;
+};
+
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(configService: ConfigService) {
     const secret = configService.get('JWT_SECRET');
@@ -21,7 +26,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  validate(payload: JwtPayload): unknown {
-    return { sub: payload.sub, email: payload.email };
+  validate(payload: JwtPayload): CurrentUser {
+    return { id: payload.sub, email: payload.email };
   }
 }
