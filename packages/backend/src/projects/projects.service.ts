@@ -27,7 +27,7 @@ export class ProjectsService {
     return this.toDomain(project);
   }
 
-  async findAll(userId: string): Promise<Project[]> {
+  async findByUser(userId: string): Promise<Project[]> {
     const projects = await this.prisma.project.findMany({
       where: { ownerId: userId },
       orderBy: { updatedAt: 'desc' },

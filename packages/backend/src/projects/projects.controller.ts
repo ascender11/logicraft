@@ -22,8 +22,8 @@ export class ProjectsController {
   constructor(private projectsService: ProjectsService) {}
 
   @Get()
-  findAll(@User() user: CurrentUser) {
-    return this.projectsService.findAll(user.id);
+  findByUser(@User() user: CurrentUser) {
+    return this.projectsService.findByUser(user.id);
   }
 
   @Get(':projectId')
