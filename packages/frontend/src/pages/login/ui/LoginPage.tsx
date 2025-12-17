@@ -1,11 +1,11 @@
 import { LoginRequestSchema } from 'contracts';
 import { Link } from 'react-router-dom';
 
-import { useLoginUser } from '../api/use-login-user';
-
 import { routes } from '@/shared/config/routes';
 import { useAppForm } from '@/shared/lib';
 import { Form, Button, Input, Loader, PasswordInput } from '@/shared/ui';
+
+import { useLoginUser } from '../api/use-login-user';
 
 export const LoginPage = () => {
   const form = useAppForm(LoginRequestSchema, {

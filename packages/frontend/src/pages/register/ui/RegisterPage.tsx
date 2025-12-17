@@ -1,11 +1,12 @@
 import { RegisterRequestSchema } from 'contracts';
 import { Link } from 'react-router-dom';
 
-import { useRegisterUser } from '../api/use-register-user';
 
 import { routes } from '@/shared/config/routes';
 import { useAppForm } from '@/shared/lib';
 import { Form, Button, Input, Loader, PasswordInput } from '@/shared/ui';
+
+import { useRegisterUser } from '../api/use-register-user';
 
 export const RegisterPage = () => {
   const form = useAppForm(RegisterRequestSchema, {

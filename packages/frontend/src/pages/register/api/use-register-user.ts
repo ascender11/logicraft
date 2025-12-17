@@ -22,10 +22,10 @@ export const useRegisterUser = (reset: UseFormReset<RegisterRequestDto>) => {
       toast.error(message);
     },
     onSuccess: (data: RegisterResponseDto) => {
-      reset();
-      navigate(routes.home);
       dispatch(sessionActions.setToken(data.access_token));
       dispatch(userActions.setUser(data.user));
+      reset();
+      setTimeout(() => navigate(routes.projects.base), 0);
     },
   });
 };

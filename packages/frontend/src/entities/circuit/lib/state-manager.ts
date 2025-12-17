@@ -2,7 +2,6 @@ import { ProcessorType, type LogicValue } from '@/entities/processor/@x/circuit'
 
 import type { CircuitNode, CircuitNodeId, SimulationState } from '../model/types';
 
-
 export class StateManager {
   private state: SimulationState;
 

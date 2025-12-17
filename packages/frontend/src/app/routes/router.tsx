@@ -1,10 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { LoginPage } from '@/pages/login';
+import { ProjectEditorPage } from '@/pages/project-editor';
+import { ProjectsPage } from '@/pages/projects';
 import { RegisterPage } from '@/pages/register';
-import { WorkspacePage } from '@/pages/workspace';
 import { routes } from '@/shared/config';
-import { GuestRoute } from '@/shared/lib';
+import { GuestRoute, ProtectedRoute } from '@/shared/lib';
 import { AuthLayout } from '@/widgets/auth';
 
 import { RootLayout } from '../layouts/RootLayout';
@@ -13,17 +14,13 @@ export const router = createBrowserRouter([
   {
     element: <RootLayout />,
     children: [
+      { path: routes.home, element: <>HomePage</> },
       {
-        path: routes.home,
-        element: <>HomePage</>,
-      },
-      {
-        path: routes.workspace.projectId(':projectId'),
-        element: <WorkspacePage />,
-      },
-      {
-        path: routes.profile,
-        element: <>Profile</>,
+        element: <ProtectedRoute />,
+        children: [
+          { path: routes.projects.base, element: <ProjectsPage /> },
+          { path: routes.projects.id(':projectId'), element: <ProjectEditorPage /> },
+        ],
       },
     ],
   },

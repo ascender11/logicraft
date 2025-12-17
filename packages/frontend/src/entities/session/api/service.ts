@@ -11,9 +11,9 @@ import {
   RegisterResponseSchema,
 } from 'contracts';
 
-import { sessionApiEndpoints } from './endpoints';
-
 import { axiosInstance } from '@/shared/api';
+
+import { sessionApiEndpoints } from './endpoints';
 
 export const sessionService = {
   async register(data: RegisterRequestDto): Promise<RegisterResponseDto> {

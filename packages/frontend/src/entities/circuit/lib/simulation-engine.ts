@@ -165,4 +165,10 @@ export class SimulationEngine {
   public getNodeOutput(nodeId: CircuitNodeId): LogicValue {
     return this.stateManager.getNodeOutput(nodeId);
   }
+
+  public clear(): void {
+    this.circuitManager = new CircuitManager();
+    this.eventManager = new EventManager();
+    this.stateManager = new StateManager();
+  }
 }
